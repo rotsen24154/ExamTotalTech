@@ -8,6 +8,7 @@ namespace ExamTotalTech.Controls
     /// </summary>
     public class LoadingHolderControlView : ContentView
     {
+        #region Properties
         /// <summary>
         /// The content
         /// </summary>
@@ -21,20 +22,50 @@ namespace ExamTotalTech.Controls
         private Lottie.Forms.AnimationView activityIndicator;
 
         /// <summary>
-        /// Initializes a new instance of the PopupLayout class.
-        /// </summary>
-        public LoadingHolderControlView()
-        {
-            base.Content = layout = new Grid();
-        }
-
-        /// <summary>
         /// Bindable property for Content
         /// </summary>
         public new static BindableProperty ContentProperty = BindableProperty.Create(nameof(Content), typeof(View), typeof(LoadingHolderControlView), propertyChanged: OnContentChanged);
 
         public static BindableProperty IsBusyProperty = BindableProperty.Create(nameof(IsBusy), typeof(bool), typeof(LoadingHolderControlView), false);
 
+        public new View Content
+        {
+            get
+            {
+                return GetValue(ContentProperty) as View;
+            }
+            set
+            {
+                SetValue(ContentProperty, value);
+            }
+        }
+
+        public bool IsBusy
+        {
+            get
+            {
+                return (bool)GetValue(IsBusyProperty);
+            }
+            set
+            {
+                SetValue(IsBusyProperty, value);
+            }
+        }
+
+
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the LoadingHolderControlView class.
+        /// </summary>
+        public LoadingHolderControlView()
+        {
+            base.Content = layout = new Grid();
+        }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Set Content
         /// </summary>
@@ -106,33 +137,6 @@ namespace ExamTotalTech.Controls
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
-
-        /// <summary>
-        /// Gets or sets the content.
-        /// </summary>
-        /// <value>The content.</value>
-        public new View Content
-        {
-            get
-            {
-                return GetValue(ContentProperty) as View;
-            }
-            set
-            {
-                SetValue(ContentProperty, value);
-            }
-        }
-
-        public bool IsBusy
-        {
-            get
-            {
-                return (bool)GetValue(IsBusyProperty);
-            }
-            set
-            {
-                SetValue(IsBusyProperty, value);
-            }
-        }
+        #endregion
     }
 }

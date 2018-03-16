@@ -9,15 +9,12 @@ namespace ExamTotalTech.iOS.Helpers
 {
     public class TableSource : UITableViewSource
     {
-
-        // Global variable for the secondary toolbar items and text to display in table row
         List<ToolbarItem> tableItems;
         string[] tableItemTexts;
         string CellIdentifier = "TableCell";
 
         public TableSource(List<ToolbarItem> items)
         {
-            //Set the secondary toolbar items to global variables and get all text values from the toolbar items
             tableItems = items;
             tableItemTexts = items.Select(a => a.Text).ToArray();
         }
@@ -39,12 +36,11 @@ namespace ExamTotalTech.iOS.Helpers
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
         {
-            return 56; // Set default row height.
+            return 56;
         }
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            //Used command to excute and deselct the row and removed the table.
             var command = tableItems[0].Command;
             command.Execute(tableItems[0].CommandParameter);
             tableView.DeselectRow(indexPath, true);

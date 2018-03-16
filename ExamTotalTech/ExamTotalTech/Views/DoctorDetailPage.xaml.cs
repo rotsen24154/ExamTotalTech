@@ -9,17 +9,26 @@ namespace ExamTotalTech.Views
     {
         DoctorDetailPageViewModel viewModel;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public DoctorDetailPage()
         {
             InitializeComponent();
             viewModel = (DoctorDetailPageViewModel)BindingContext;
         }
 
+        /// <summary>
+        /// Override for onAppearing
+        /// </summary>
         protected override void OnAppearing()
         {
             MoveMap();
         }
 
+        /// <summary>
+        /// Center camera on the pin
+        /// </summary>
         private void MoveMap()
         {
             var location = Utils.StringToPosition(viewModel.CurrentUser.Location.UserPosition);

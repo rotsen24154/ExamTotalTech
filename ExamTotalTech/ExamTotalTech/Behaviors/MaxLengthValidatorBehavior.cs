@@ -7,6 +7,7 @@ namespace ExamTotalTech.Behaviors
     /// </summary>
     public class MaxLengthValidatorBehavior : Behavior<Entry>
     {
+        #region Properties
         public static readonly BindableProperty MaxLengthProperty = BindableProperty.Create("MaxLength", typeof(int), typeof(MaxLengthValidatorBehavior), 0);
 
         public int MaxLength
@@ -14,7 +15,9 @@ namespace ExamTotalTech.Behaviors
             get { return (int)GetValue(MaxLengthProperty); }
             set { SetValue(MaxLengthProperty, value); }
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Sets event
         /// </summary>
@@ -46,5 +49,6 @@ namespace ExamTotalTech.Behaviors
             bindable.TextChanged -= HandleTextChanged;
 
         }
+        #endregion
     }
 }

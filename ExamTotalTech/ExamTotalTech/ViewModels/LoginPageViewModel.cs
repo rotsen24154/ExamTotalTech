@@ -50,9 +50,6 @@ namespace ExamTotalTech.ViewModels
         {
             this.userService = userService;
 
-            Username = "Abcd@fdksf.com";
-            Password = "Abcd1234";
-
             LoginCommand = new DelegateCommand(OnLoginCommandExecuted, LoginCommandCanExecute)
                .ObservesProperty(() => Username)
                .ObservesProperty(() => Password);

@@ -1,5 +1,4 @@
-﻿
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ExamTotalTech.Controls
@@ -10,6 +9,7 @@ namespace ExamTotalTech.Controls
     /// </summary>
     public partial class PinControl : StackLayout
     {
+        #region Constructor
         /// <summary>
         /// Constructor for PinControl
         /// </summary>
@@ -19,5 +19,6 @@ namespace ExamTotalTech.Controls
             InitializeComponent();
             PinImage.Source = pinImage;
         }
+        #endregion
     }
 }

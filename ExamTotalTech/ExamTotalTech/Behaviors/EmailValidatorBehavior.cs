@@ -10,22 +10,10 @@ namespace ExamTotalTech.Behaviors
     /// </summary>
     public class EmailValidatorBehavior : Behavior<Entry>
     {
+        #region Properties
         private const double TIME_SPAN_TEXT_CHANGED = 250;
         private static string EmailRegex { get; set; }
 
-        /// <summary>
-        /// Validate regex of Email 
-        /// </summary>
-        public EmailValidatorBehavior()
-        {
-            if (string.IsNullOrWhiteSpace(EmailRegex))
-            {
-                EmailRegex = Constants.EmailRegexValidator;
-            }
-        }
-        /// <summary>
-        /// Validate if is Bindable valid property
-        /// </summary>
         private static readonly BindablePropertyKey isValidPropertyKey = BindableProperty.CreateReadOnly("IsValid", typeof(bool), typeof(EmailValidatorBehavior), false);
 
         public static BindableProperty IsValidProperty => isValidPropertyKey.BindableProperty;
@@ -36,6 +24,22 @@ namespace ExamTotalTech.Behaviors
             set { SetValue(isValidPropertyKey, value); }
         }
 
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Validate regex of Email 
+        /// </summary>
+        public EmailValidatorBehavior()
+        {
+            if (string.IsNullOrWhiteSpace(EmailRegex))
+            {
+                EmailRegex = Constants.EmailRegexValidator;
+            }
+        }
+        #endregion
+
+        #region Methods
         /// <summary>
         /// Sets event
         /// </summary>
@@ -66,5 +70,6 @@ namespace ExamTotalTech.Behaviors
             bindable.TextChanged -= HandleTextChanged;
 
         }
+        #endregion
     }
 }

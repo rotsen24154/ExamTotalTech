@@ -8,11 +8,7 @@ namespace ExamTotalTech.Controls
     /// </summary>
     public class ImageEntry : Entry
     {
-        public ImageEntry()
-        {
-            this.HeightRequest = 50;
-        }
-
+        #region Properties
         public static readonly BindableProperty ImageProperty =
             BindableProperty.Create(nameof(Image), typeof(string), typeof(ImageEntry), string.Empty);
 
@@ -57,5 +53,16 @@ namespace ExamTotalTech.Controls
             get { return (ImageAlignment)GetValue(ImageAlignmentProperty); }
             set { SetValue(ImageAlignmentProperty, value); }
         }
+        #endregion
+
+        #region Constructor
+        /// <summary>
+        /// Constructor for Image Entry
+        /// </summary>
+        public ImageEntry()
+        {
+            this.HeightRequest = 50;
+        }
+        #endregion
     }
 }

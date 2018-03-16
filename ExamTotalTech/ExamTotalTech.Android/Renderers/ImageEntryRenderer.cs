@@ -24,15 +24,26 @@ namespace ExamTotalTech.Droid.Renderers
 {
     public class ImageEntryRenderer : EntryRenderer
     {
+        #region Properties
         ImageEntry element;
+        #endregion
 
         #region Constructor
+        /// <summary>
+        /// Empty constructor for Xamarin 2.5
+        /// </summary>
+        /// <param name="context"></param>
         public ImageEntryRenderer(Context context) : base(context)
         {
 
         }
         #endregion
 
+        #region Methods
+        /// <summary>
+        /// Element Change method
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
@@ -63,6 +74,11 @@ namespace ExamTotalTech.Droid.Renderers
             Control.Background.SetColorFilter(element.LineColor.ToAndroid(), PorterDuff.Mode.SrcAtop);
         }
 
+        /// <summary>
+        /// Property change, when implement show password
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             var editText = this.Control;
@@ -77,10 +93,16 @@ namespace ExamTotalTech.Droid.Renderers
             }
         }
 
+        /// <summary>
+        /// Get the image from resources
+        /// </summary>
+        /// <param name="imageEntryImage"></param>
+        /// <returns></returns>
         private Drawable GetDrawable(string imageEntryImage)
         {
             int resId = ResourceManager.GetDrawableByName(imageEntryImage);
             return ContextCompat.GetDrawable(Context, resId);
         }
+        #endregion
     }
 }

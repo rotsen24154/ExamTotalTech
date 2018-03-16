@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>My App</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contactar</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email Adress</value>
@@ -126,7 +135,25 @@
   <data name="InvalidEmail" xml:space="preserve">
     <value>Debes escribir un email válido</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Postalcode" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Calle</value>
+  </data>
+  <data name="Ubication" xml:space="preserve">
+    <value>Ubicación</value>
   </data>
 </root>

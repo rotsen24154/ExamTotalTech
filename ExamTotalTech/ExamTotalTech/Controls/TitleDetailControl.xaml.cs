@@ -7,6 +7,7 @@ namespace ExamTotalTech.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TitleDetailControl : ContentView
 	{
+        #region Properties
         public static readonly BindableProperty TitleTextProperty =
                         BindableProperty.Create(nameof(TitleText), typeof(string), typeof(TitleDetailControl), string.Empty, BindingMode.TwoWay, propertyChanged: TitlePropertyChanged);
 
@@ -24,7 +25,9 @@ namespace ExamTotalTech.Controls
             get { return base.GetValue(DetailTextProperty).ToString(); }
             set { base.SetValue(DetailTextProperty, value); }
         }
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ExamTotalTech.Controls.TitleDetailControl"/> class.
         /// </summary>
@@ -32,7 +35,9 @@ namespace ExamTotalTech.Controls
 		{
 			InitializeComponent ();
 		}
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Title property changed.
         /// </summary>
@@ -56,6 +61,6 @@ namespace ExamTotalTech.Controls
             var control = (TitleDetailControl)bindable;
             control.Detail.Text = newValue.ToString();
         }
-
+        #endregion
     }
 }

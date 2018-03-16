@@ -13,10 +13,17 @@ namespace ExamTotalTech.iOS.Renderers
 {
     public class CustomPageRenderer : PageRenderer
     {
+        #region Properties
         List<ToolbarItem> secondaryItems;
         UITableView table;
         private bool isRendered;
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// On Element changed method
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             if (e.NewElement is ContentPage page)
@@ -27,6 +34,10 @@ namespace ExamTotalTech.iOS.Renderers
             base.OnElementChanged(e);
         }
 
+        /// <summary>
+        /// Show the icon menu on toolbar
+        /// </summary>
+        /// <param name="animated"></param>
         public override void ViewWillAppear(bool animated)
         {
             var element = (ContentPage)Element;
@@ -47,6 +58,9 @@ namespace ExamTotalTech.iOS.Renderers
             base.ViewWillAppear(animated);
         }
 
+        /// <summary>
+        /// When clicked the menu option
+        /// </summary>
         private void ToolClicked()
         {
             if (table == null)
@@ -69,5 +83,6 @@ namespace ExamTotalTech.iOS.Renderers
             }
             Add(table);
         }
+        #endregion
     }
 }

@@ -11,8 +11,10 @@ namespace ExamTotalTech.Droid.Renderers
 {
     public class CustomRoundedButtonRenderer : ButtonRenderer
     {
+        #region Properties
         private GradientDrawable normal;
         private GradientDrawable pressed;
+        #endregion
 
         #region Constructor
         public CustomRoundedButtonRenderer(Context context) : base(context)
@@ -21,6 +23,11 @@ namespace ExamTotalTech.Droid.Renderers
         }
         #endregion
 
+        #region Methods
+        /// <summary>
+        /// Fires when element change 
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
         {
             base.OnElementChanged(e);
@@ -62,5 +69,6 @@ namespace ExamTotalTech.Droid.Renderers
                 };
             }
         }
+        #endregion
     }
 }

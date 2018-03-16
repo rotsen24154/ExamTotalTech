@@ -17,26 +17,24 @@
                 </Grid.RowDefinitions>
 
                 <Image Grid.Row="0" Grid.RowSpan="2" Source="bg_login" Aspect="Fill"/>
-                <Label Grid.Row="0" Text="{x:Static res:AppResources.AppName}" TextColor="White" FontSize="35" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Grid.Row="0" Text="{x:Static res:AppResources.AppName}" Style="{StaticResource TitleStyle}"/>
 
                 <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0" Spacing="30">
 
                     <StackLayout>
-                        <controls:ImageEntry x:Name="EmailEntry" Text="{Binding Username}" HorizontalOptions="FillAndExpand" TextColor="White" HeightRequest="50"
-                                             Placeholder="{x:Static res:AppResources.Email}" PlaceholderColor="LightGray" Keyboard="Email"
-                                             Image="icon_user" ImageHeight="22" ImageWidth="22">
+                        <controls:ImageEntry x:Name="EmailEntry" Text="{Binding Username}" Placeholder="{x:Static res:AppResources.Email}" 
+                                             Keyboard="Email" Image="icon_user" Style="{StaticResource LoginEntryStyle}" ImageHeight="22" ImageWidth="22">
                             <Entry.Behaviors>
                                 <behaviors:EmailValidatorBehavior x:Name="EmailBehavior" />
                                 <behaviors:MaxLengthValidatorBehavior MaxLength="15"/>
                             </Entry.Behaviors>
                         </controls:ImageEntry>
-                        <Label Text="{x:Static res:AppResources.InvalidEmail}" TextColor="Red" FontSize="13"
+                        <Label Text="{x:Static res:AppResources.InvalidEmail}" Style="{StaticResource ErroMessageStyle}"
                                IsVisible="{Binding Source={x:Reference EmailBehavior}, Path=IsValid, Converter={converters:BoolInversorConverter}}"/>
                     </StackLayout>
 
-                    <controls:ImageEntry x:Name="PasswordEntry" Text="{Binding Password}" HorizontalOptions="FillAndExpand" TextColor="White" HeightRequest="50"
-                                         IsPassword="True" Placeholder="{x:Static res:AppResources.Password}" PlaceholderColor="LightGray" 
-                                         Image="icon_lock" ImageHeight="22" ImageWidth="22">
+                    <controls:ImageEntry x:Name="PasswordEntry" Text="{Binding Password}" IsPassword="True" ImageHeight="22" ImageWidth="22"
+                                         Placeholder="{x:Static res:AppResources.Password}" Image="icon_lock" Style="{StaticResource LoginEntryStyle}">
                         <Entry.Behaviors>
                             <behaviors:MaxLengthValidatorBehavior MaxLength="15"/>
                         </Entry.Behaviors>
@@ -44,11 +42,12 @@
 
                     <Frame IsVisible="{Binding ValidationErrors, Converter={converters:StringToBoolConverter}}">
                         <StackLayout Padding="0">
-                            <Label x:Name="MessageLbl" Text="{Binding ValidationErrors}" TextColor="Red" FontSize="13"/>
+                            <Label x:Name="MessageLbl" Text="{Binding ValidationErrors}" Style="{StaticResource ErroMessageStyle}"/>
                         </StackLayout>
                     </Frame>
 
-                    <controls:CustomRoundedButton Text="Login" HorizontalOptions="FillAndExpand" HeightRequest="50" TextColor="#00DC45" BackgroundColor="White" Command="{Binding LoginCommand}"/>
+                    <controls:CustomRoundedButton Text="{x:Static res:AppResources.Login}" HorizontalOptions="FillAndExpand" 
+                                                  HeightRequest="50" TextColor="#00DC45" BackgroundColor="White" Command="{Binding LoginCommand}"/>
                 </StackLayout>
             </Grid>
         </controls:LoadingHolderControlView.Content>
